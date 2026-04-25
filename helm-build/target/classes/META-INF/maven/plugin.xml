@@ -15,13 +15,14 @@
   <requiredMavenVersion>3.9.15</requiredMavenVersion>
   <mojos>
     <mojo>
-      <goal>helm.build</goal>
+      <goal>helm-build</goal>
       <requiresDirectInvocation>false</requiresDirectInvocation>
       <requiresProject>true</requiresProject>
       <requiresReports>false</requiresReports>
       <aggregator>false</aggregator>
       <requiresOnline>false</requiresOnline>
       <inheritedByDefault>true</inheritedByDefault>
+      <phase>package</phase>
       <implementation>HelmBuildStepMojo</implementation>
       <language>java</language>
       <instantiationStrategy>per-lookup</instantiationStrategy>
@@ -35,9 +36,17 @@
           <editable>true</editable>
           <description></description>
         </parameter>
+        <parameter>
+          <name>project</name>
+          <type>org.apache.maven.project.MavenProject</type>
+          <required>true</required>
+          <editable>false</editable>
+          <description></description>
+        </parameter>
       </parameters>
       <configuration>
-        <helmChartDir implementation="java.lang.String" default-value="/deploy">${helm.build.helmDir}</helmChartDir>
+        <helmChartDir implementation="java.lang.String" default-value="/deploy/chart">${helm-build.helmDir}</helmChartDir>
+        <project implementation="org.apache.maven.project.MavenProject" default-value="${project}"/>
       </configuration>
     </mojo>
   </mojos>
@@ -68,12 +77,6 @@
     </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
-      <artifactId>plexus-component-annotations</artifactId>
-      <type>jar</type>
-      <version>2.2.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
       <type>jar</type>
       <version>3.6.1</version>
@@ -85,16 +88,22 @@
       <version>2.9.0</version>
     </dependency>
     <dependency>
-      <groupId>org.quartz-scheduler</groupId>
-      <artifactId>quartz</artifactId>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-component-annotations</artifactId>
       <type>jar</type>
-      <version>2.5.2</version>
+      <version>2.2.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <type>jar</type>
-      <version>2.0.16</version>
+      <version>1.7.36</version>
+    </dependency>
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+      <type>jar</type>
+      <version>2.5.2</version>
     </dependency>
     <dependency>
       <groupId>jakarta.xml.bind</groupId>

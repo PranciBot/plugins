@@ -15,12 +15,12 @@ import java.util.AbstractMap;
 import java.util.Map;
 
 @Mojo(
-        name = "helm.build",
+        name = "helm-build",
         defaultPhase = LifecyclePhase.PACKAGE
 )
 public class HelmBuildStepMojo extends AbstractMojo {
     private final Log log = getLog();
-    @Parameter(property = "helm.build.helmDir", defaultValue = "/deploy/chart")
+    @Parameter(property = "helm-build.helmDir", defaultValue = "/deploy/chart")
     private String helmChartDir;
     @Parameter(defaultValue = "${project}", readonly = true, required = true)
     private MavenProject project;
@@ -29,7 +29,7 @@ public class HelmBuildStepMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException, MojoFailureException {
         log.info("Start to build helm deploy");
         Map.Entry<Boolean, String> checkResult = checkDeployExist();
-        if (checkResult.getKey()) {
+        if (!checkResult.getKey()) {
             log.info("Helm deploy chart not exist at %s".formatted(checkResult.getValue()));
             return;
         }

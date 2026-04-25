@@ -11,13 +11,14 @@
   <goalPrefix>helm-build</goalPrefix>
   <mojos>
     <mojo>
-      <goal>helm.build</goal>
+      <goal>helm-build</goal>
       <requiresDirectInvocation>false</requiresDirectInvocation>
       <requiresProject>true</requiresProject>
       <requiresReports>false</requiresReports>
       <aggregator>false</aggregator>
       <requiresOnline>false</requiresOnline>
       <inheritedByDefault>true</inheritedByDefault>
+      <phase>package</phase>
       <implementation>HelmBuildStepMojo</implementation>
       <language>java</language>
       <instantiationStrategy>per-lookup</instantiationStrategy>
@@ -33,7 +34,7 @@
         </parameter>
       </parameters>
       <configuration>
-        <helmChartDir implementation="java.lang.String" default-value="/deploy">${helm.build.helmDir}</helmChartDir>
+        <helmChartDir implementation="java.lang.String" default-value="/deploy/chart">${helm-build.helmDir}</helmChartDir>
       </configuration>
     </mojo>
   </mojos>
