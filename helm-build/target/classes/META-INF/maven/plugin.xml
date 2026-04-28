@@ -93,29 +93,5 @@
       <type>jar</type>
       <version>2.2.0</version>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <type>jar</type>
-      <version>1.7.36</version>
-    </dependency>
-    <dependency>
-      <groupId>org.quartz-scheduler</groupId>
-      <artifactId>quartz</artifactId>
-      <type>jar</type>
-      <version>2.5.2</version>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.xml.bind</groupId>
-      <artifactId>jakarta.xml.bind-api</artifactId>
-      <type>jar</type>
-      <version>4.0.4</version>
-    </dependency>
-    <dependency>
-      <groupId>jakarta.activation</groupId>
-      <artifactId>jakarta.activation-api</artifactId>
-      <type>jar</type>
-      <version>2.1.4</version>
-    </dependency>
   </dependencies>
 </plugin>

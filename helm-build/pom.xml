@@ -7,6 +7,7 @@
         <groupId>com.prancibot</groupId>
         <artifactId>plugins</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <packaging>maven-plugin</packaging>
     <artifactId>helm-build</artifactId>
