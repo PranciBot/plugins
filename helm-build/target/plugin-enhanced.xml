@@ -11,7 +11,7 @@
   <goalPrefix>helm-build</goalPrefix>
   <isolatedRealm>false</isolatedRealm>
   <inheritedByDefault>true</inheritedByDefault>
-  <requiredJavaVersion>25</requiredJavaVersion>
+  <requiredJavaVersion>1.8</requiredJavaVersion>
   <requiredMavenVersion>3.9.15</requiredMavenVersion>
   <mojos>
     <mojo>
